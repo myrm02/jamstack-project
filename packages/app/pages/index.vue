@@ -19,13 +19,11 @@ function addTag(tag: string) {
 
 <template>
   <div class="container">
-    <template v-if="search.pending">
-      <div class="flex justify-center mt-47">
+    <template>
+      <div v-if="search.pending && search.sortedByTags" class="flex justify-center mt-47">
         <Loading />
       </div>
-    </template>
-    <template v-else>
-      <div class="flex flex-col my-8"> <!--Section pour le contenu de la page en entier-->
+      <div v-if="!search.pending && search.sortedByTags" class="flex flex-col my-8"> <!--Section pour le contenu de la page en entier-->
         <div class="flex flex-col lg:flex-row gap-x-3"> <!--Section pour séparer les deux blocs-->
           <aside class="flex flex-col ml-17"> <!--Section des catégories-->
             <div class="form-group flex flex-col">
