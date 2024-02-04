@@ -19,7 +19,6 @@ function addTag(tag: string) {
 
 <template>
   <div class="container">
-    <template>
       <div v-if="search.pending && search.sortedByTags" class="flex justify-center mt-47">
         <Loading />
       </div>
