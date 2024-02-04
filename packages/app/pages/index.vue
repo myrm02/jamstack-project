@@ -77,7 +77,7 @@ function addTag(tag: string) {
               >
   
                 <NuxtLink v-for="recipe in search.sortedByTags" :key="recipe.id" :to="`/post/${recipe.slug}`" class="no-underline text-black">
-                  <NuxtImg :src="recipe.image.url" alt="A post" class="w-[265.46px] h-[202] object-cover"></NuxtImg>
+                  <NuxtImg :src="recipe.image.url" alt="A post" class="w-[265.46px] h-[202px] object-cover"></NuxtImg>
                   <p id="artTitle">{{ recipe.title }}</p>
                 </NuxtLink>
   
