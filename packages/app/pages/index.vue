@@ -87,6 +87,5 @@ function addTag(tag: string) {
           </client-only>
         </div>
       </div>
-    </template>
   </div>
 </template>
