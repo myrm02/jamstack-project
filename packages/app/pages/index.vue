@@ -61,7 +61,7 @@ function addTag(tag: string) {
               <div class="grid grid-cols-4 gap-2 w- ml-16" role="group"> <!--Section pour les tags-->
                 <button
                   v-for="tag in tags?.data" :key="tag.id"
-                  :class="{ 'bg-gray-900 text-white': search.queryTags.includes(tag.slug) }"
+                  :class="{ 'border-2 border-[#FC98FF] text-white': search.queryTags.includes(tag.slug) }"
                   :title="tag.name"
                   id="tagsLabel"
                   class="w-[118px] h-[33px] justify-center items-center rounded-[17px] py-1 px-2 bg-[#FCAFFF] text-white text-sm font-medium border-none cursor-pointer hover:bg-[#FC98FF]"
