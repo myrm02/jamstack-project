@@ -892,47 +892,6 @@ export interface ApiProfilProfil extends Schema.CollectionType {
   };
 }
 
-export interface ApiRecipeRecipe extends Schema.CollectionType {
-  collectionName: 'recipes';
-  info: {
-    singularName: 'recipe';
-    pluralName: 'recipes';
-    displayName: 'Recettes';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    slug: Attribute.UID<'api::recipe.recipe', 'title'> & Attribute.Required;
-    description: Attribute.RichText;
-    tags: Attribute.Relation<
-      'api::recipe.recipe',
-      'manyToMany',
-      'api::tag.tag'
-    >;
-    image: Attribute.Media & Attribute.Required;
-    ingredients: Attribute.Component<'recipes.ingredients', true>;
-    steps: Attribute.Component<'recipes.etapes', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::recipe.recipe',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::recipe.recipe',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -947,11 +906,6 @@ export interface ApiTagTag extends Schema.CollectionType {
   attributes: {
     name: Attribute.String;
     slug: Attribute.UID<'api::tag.tag', 'name'>;
-    recipes: Attribute.Relation<
-      'api::tag.tag',
-      'manyToMany',
-      'api::recipe.recipe'
-    >;
     posts: Attribute.Relation<'api::tag.tag', 'manyToMany', 'api::post.post'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -983,7 +937,6 @@ declare module '@strapi/types' {
       'api::comment.comment': ApiCommentComment;
       'api::post.post': ApiPostPost;
       'api::profil.profil': ApiProfilProfil;
-      'api::recipe.recipe': ApiRecipeRecipe;
       'api::tag.tag': ApiTagTag;
     }
   }
