@@ -55,9 +55,6 @@ function addTag(tag: string) {
           </aside>
           <client-only> <!--Section des publications et tags-->
             <div class="flex flex-col gap-y-2"> <!--Section pour séparer publications et tags-->
-              <div class="flex mx-24 hover:cursor-pointer" @click="search.resetTags">
-                <img aria-hidden="true" class="rounded-full w-[38.86px] h-[38.86px]" src="/public/reset-button.png" alt="restart">
-              </div>
               <div class="grid grid-cols-4 gap-2 w- ml-16" role="group"> <!--Section pour les tags-->
                 <button
                   v-for="tag in tags?.data" :key="tag.id"
@@ -69,6 +66,9 @@ function addTag(tag: string) {
                 >
                   {{ tag.name }}
                 </button>
+                <div class="flex hover:cursor-pointer" @click="search.resetTags">
+                  <img aria-hidden="true" class="rounded-full w-[38.86px] h-[38.86px]" src="/public/reset-button.png" alt="restart">
+                </div>
               </div>
               <div> <!--Section des publications-->
               <ul
